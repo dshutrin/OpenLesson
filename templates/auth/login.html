@@ -1,0 +1,28 @@
+{% extends 'poster/base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <div class="form-block">
+        <div class="filler"></div>
+        <form method="post">
+            {% csrf_token %}
+            {% for f in form %}
+                <div class="form-element">
+                    {{f}}
+                </div>
+            {% endfor %}
+            <button type="submit">Войти</button>
+            <span id="reg_link">
+                Нет аккаунта?
+                <a href="/register">Зарегистрируйтесь</a>
+            </span>
+        </form>
+        <div class="filler"></div>
+    </div>
+
+{% endblock %}
